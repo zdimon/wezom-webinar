@@ -32,8 +32,7 @@
     libpq-dev virtualenv git
 
 
-[Start a new project](start.md)
+[Start a new Django and Angular project](start.md)
 
-
-
+[Install DRF](drf-install.md)
 
