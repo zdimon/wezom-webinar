@@ -2,24 +2,28 @@
 
 ## System requirements
 
-Python 3.7
+### Python 3.7
 
 [link](https://www.python.org/downloads/release/python-377/)
 
-NodeJS
+### NodeJS
 
 [link](https://nodejs.org/uk/)
 
-GIT
+### GIT
 
 [git](https://git-scm.com/)
 
-Angular 8
+### Angular 8
 
     npm install -g @angular/cli
 
-VSCode
+### VSCode
 
 [link](https://code.visualstudio.com/)
+
+[Start a new project](start.md)
+
+
 
 
