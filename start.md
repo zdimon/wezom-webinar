@@ -16,4 +16,4 @@ Small tip. Rewrite the cd func in the .bashrc file to activate VO automatically.
 
 ## Requirements.
 
-    Django
+    Django==
