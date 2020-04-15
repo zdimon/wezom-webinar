@@ -22,6 +22,16 @@
 
 [link](https://code.visualstudio.com/)
 
+
+## Ubuntu installation
+
+    sudo apt-get language-pack-en-base \
+    python3 python-dev python3-dev \
+    build-essential libssl-dev libffi-dev \
+    libxml2-dev libxslt1-dev zlib1g-dev \
+    libpq-dev virtualenv git
+
+
 [Start a new project](start.md)
 
 

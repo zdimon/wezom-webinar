@@ -1,3 +1,5 @@
+# Python
+
 ## Make a virtual environment
     mkdir backend
     cd backend 
@@ -16,4 +18,13 @@ Small tip. Rewrite the cd func in the .bashrc file to activate VO automatically.
 
 ## Requirements.
 
-    Django==
+requirements.txt
+
+    Django==3.0.5
+    djangorestframework==3.11.0
+    channels==2.4.0
+
+Install command.
+
+    pip install -r requirements.txt
+
