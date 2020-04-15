@@ -3,3 +3,4 @@ djangorestframework==3.11.0
 channels==2.4.0
 django-filter==2.2.0
 djangochannelsrestframework==0.0.5
+drf-yasg==1.17.1

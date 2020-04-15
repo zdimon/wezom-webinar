@@ -36,3 +36,8 @@
 
 [Install DRF](drf-install.md)
 
+[User account model](user-model-api.md)
+
+[Using swagger](swagger.md)
+
+[Using cannels](channels.md)

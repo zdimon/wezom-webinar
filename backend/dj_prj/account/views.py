@@ -15,6 +15,7 @@ class LoginResponseSerializer(serializers.Serializer):
     status = serializers.IntegerField()
     message = serializers.CharField()
 
+from drf_yasg.utils import swagger_auto_schema
 
 class LoginView(APIView):
     '''
@@ -25,5 +26,9 @@ class LoginView(APIView):
 
     permission_classes = (AllowAny,)
     serializer_class = LoginRequestSerializer
+    @swagger_auto_schema( 
+        operation_description="Login user by username and password.", \
+        request_body=LoginRequestSerializer, \
+        responses={200: LoginResponseSerializer} )
     def post(self, request, format=None):
         return Response(LoginResponseSerializer({'status': 0, 'message': 'ok'}).data)

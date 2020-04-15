@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  private socket;
+  constructor() {
+    this.socket = new WebSocket(`ws://localhost:8080/online/`);
+  }
 }
