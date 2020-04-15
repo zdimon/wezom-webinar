@@ -47,6 +47,12 @@ requirements.txt
 
 ![dj](images/dj1.png)
 
+### .gitignore
+
+    venv
+    *.pyc
+    __pycache__
+
 
 # Angular.
 
