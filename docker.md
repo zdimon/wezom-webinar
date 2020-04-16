@@ -43,6 +43,21 @@ Docker — это приложение, которое упрощает упра
 
     docker [option] [command] [arguments]
 
+## Установка docker-compose.
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+    sudo chmod +x /usr/local/bin/docker-compose
+
+В Docker есть две важные концепции: образы (images) и контейнеры (containers).
+
+Image: список инструкций для всех программных пакетов в ваших проектах
+
+
+Другими словами, образ (image) описывает, что произойдет, а контейнер (container) – это то, что фактически выполняется.
+
+
+Container: экземпляр образа во время выполнения
 
 ## Нужно создать Dockerfile,  Python dependencies file, и docker-compose.yml
 
@@ -50,16 +65,68 @@ Dockerfile - определяет и создает образ приложен�
 
 Потом этот образ будет запущен внутри контейнера.
 
+Создадим файл в каталоге dj_prj.
+
     FROM python:3
     ENV PYTHONUNBUFFERED 1
-    RUN mkdir /docker-img
-    WORKDIR /docker-img
-    COPY requirements.txt /docker-img/
+    RUN mkdir /app
+    WORKDIR /app
+    COPY requirements.txt /app
     RUN pip install -r requirements.txt
-    COPY . /docker-img/
+    COPY . /app/
 
 Мы начинаем создавать образ (FROM python:3) на основе родительского [тут](https://hub.docker.com/r/library/python/tags/3/)
 
-Создаем docker-compose.yml в корне.
+Далее мы создаем новый каталог внутри контейнера, устанавливаем зависимости и копируем в него код проекта бекенда.
+
+Создаем docker-compose.yml в корне от куда будем запускать docker-compose up. В нем будем описывать сервисы, запущенные нашим приложением.
+
+Так же в этом файле определяются порты, на которых запускаются сервисы и на которые они передаются.
 
 docker-compose.yml
+
+
+    version: '3.5'
+
+    services:
+    django:
+        build: ./backend/dj_prj
+        command: python manage.py runserver 0.0.0.0:8000
+        ports:
+            - "8000:8000"
+        watch: 
+            - *.py
+
+Пытаемся собрать образ.
+
+    docker-compose run web
+
+
+**ERROR: Couldn't connect to Docker daemon at http+docker://localhost - is it running?**
+
+Нужно запускать из под sudo.
+
+Запуск.
+
+    docker-compose up
+
+Привяжем контейнер к папке с проектом без копирования его во внутрь контейнера.
+
+Dockerfile
+
+    FROM python:3
+    ENV PYTHONUNBUFFERED 1
+    ADD requirements.txt requirements.txt
+    RUN pip install -r requirements.txt
+    WORKDIR /backend/dj_prj
+
+docker-compose.yml
+
+    services:
+    django:
+        build: ./backend/dj_prj
+        command: python ./backend/dj_prj/manage.py runserver 0.0.0.0:8000
+        ports:
+        - "8000:8000"
+        volumes:
+        - .:/backend/dj_prj

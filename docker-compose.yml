@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  django:
+    build: ./backend/dj_prj
+    command: python ./backend/dj_prj/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/backend/dj_prj
