@@ -41,3 +41,5 @@
 [Using swagger](swagger.md)
 
 [Using cannels](channels.md)
+
+[Create docker image](docker.md)
