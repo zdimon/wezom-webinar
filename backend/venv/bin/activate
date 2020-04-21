@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/zdimon/www/wezom-webinar/backend/venv"
+VIRTUAL_ENV="/home/zdimon/www/wezom/wezom-webinar/backend/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

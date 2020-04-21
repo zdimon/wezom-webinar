@@ -1,4 +1,4 @@
-#!/home/zdimon/www/wezom-webinar/backend/venv/bin/python3
+#!/home/zdimon/www/wezom/wezom-webinar/backend/venv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

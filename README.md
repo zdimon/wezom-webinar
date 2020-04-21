@@ -43,3 +43,8 @@
 [Using cannels](channels.md)
 
 [Create docker image](docker.md)
+
+[Testing authentication request](test-auth.md)
+
+
+[Testing socket connection](test-sock.md)

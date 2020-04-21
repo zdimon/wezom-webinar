@@ -1,4 +1,4 @@
-#!/home/zdimon/www/wezom-webinar/backend/venv/bin/python
+#!/home/zdimon/www/wezom/wezom-webinar/backend/venv/bin/python
 
 import sys
 import getopt

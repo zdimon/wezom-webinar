@@ -13,7 +13,7 @@ class RootRouter(routers.DefaultRouter):
 
 router = RootRouter()
 
-from account.views import LoginView
+
 
 
 from rest_framework import permissions
@@ -36,11 +36,27 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
+from account.views import LoginView
+
+
 
 urlpatterns = [
     path('',include(router.urls)),
     path('user/login',LoginView.as_view(),name="user-login"),
     path('admin/', admin.site.urls),
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # swagger
    path(r'swagger', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
